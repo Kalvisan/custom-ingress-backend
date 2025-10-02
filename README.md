@@ -48,7 +48,7 @@ defaultBackend:
   enabled: true
   image:
     repository: kalmars/ingress-default-backend
-    tag: "latest"
+    tag: "main"
     pullPolicy: Always
   port: 8080
 ```
@@ -74,7 +74,7 @@ spec:
     spec:
       containers:
       - name: default-backend
-        image: kalmars/ingress-default-backend:latest
+        image: kalmars/ingress-default-backend:main
         ports:
         - containerPort: 8080
 ---
@@ -146,12 +146,12 @@ After making your customizations:
 
 1. Build the Docker image:
    ```bash
-   docker build -t your-registry/ingress-default-backend:latest .
+   docker build -t docker pull kalmars/ingress-default-backend:main .
    ```
 
 2. Push to your container registry:
    ```bash
-   docker push your-registry/ingress-default-backend:latest
+   docker push docker pull kalmars/ingress-default-backend:main
    ```
 
 3. Update your Helm values or Kubernetes manifests to use your custom image.
