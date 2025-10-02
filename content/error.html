@@ -17,7 +17,7 @@
   <style>
       html,
       body {
-          background: linear-gradient(180deg, #fafafa, #deebfa) fixed;
+          background: linear-gradient(180deg, #0e0e0e, #2d1b0e) fixed;
           font-family: "Open Sans", sans-serif;
           height: 100%;
           margin: 0 auto;
@@ -38,26 +38,46 @@
       }
 
       main svg {
-          fill: #48c5fd;
-          stroke: #2e7bfc;
+          fill: #ff8c42;
+          stroke: #ff6b1a;
           stroke-width: 1.5;
           height: 140px;
           width: 200px;
       }
 
       main h1 {
-          color: #212121;
+          color: #ffffff;
           font-size: 3.5em;
           font-weight: 300;
           margin: 0;
+          text-shadow: 0 0 20px rgba(255, 107, 26, 0.3);
       }
 
       main h2 {
-          color: #757575;
+          color: #cccccc;
           font-size: 1.5em;
           font-weight: 400;
           margin-top: 10px;
           max-width: 670px;
+      }
+
+      main p {
+          color: #aaaaaa;
+          font-size: 1.1em;
+          margin-top: 15px;
+      }
+
+      /* Glow effect for the main heading */
+      main h1::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(45deg, transparent, rgba(255, 107, 26, 0.1), transparent);
+          border-radius: 10px;
+          z-index: -1;
       }
   </style>
 </head>
@@ -67,7 +87,79 @@
 
   <div style='margin-bottom: 25px;'>
     <!--# if expr="$status = 404" -->
-    <lottie-player src="https://lottie.host/f5bfd63b-469c-4b8f-99ca-857d43a5e02e/F9lkTVmX4S.json" background="transparent" speed="1" style="width: 420px; height: 300px" direction="1" mode="normal" loop autoplay></lottie-player>
+    <svg viewBox='0 0 400 200' style='width: 400px; height: 200px;'>
+      <!-- Background circle with glow effect -->
+      <circle cx='200' cy='100' r='80' fill='none' stroke='#ff8c42' stroke-width='2' opacity='0.3'>
+        <animate attributeName='r' values='80;90;80' dur='3s' repeatCount='indefinite'/>
+        <animate attributeName='opacity' values='0.3;0.6;0.3' dur='3s' repeatCount='indefinite'/>
+      </circle>
+      
+      <!-- Number 4 - Left -->
+      <g id='four-left'>
+        <rect x='80' y='40' width='20' height='120' fill='#ff8c42' rx='10'>
+          <animateTransform attributeName='transform' type='translate' values='0,0; 0,-5; 0,0' dur='2s' repeatCount='indefinite'/>
+        </rect>
+        <rect x='40' y='100' width='80' height='20' fill='#ff8c42' rx='10'>
+          <animateTransform attributeName='transform' type='translate' values='0,0; 0,-5; 0,0' dur='2s' repeatCount='indefinite'/>
+        </rect>
+        <rect x='40' y='40' width='20' height='80' fill='#ff8c42' rx='10'>
+          <animateTransform attributeName='transform' type='translate' values='0,0; 0,-5; 0,0' dur='2s' repeatCount='indefinite'/>
+        </rect>
+      </g>
+
+      <!-- Number 0 - Center (Balloon) -->
+      <g id='balloon'>
+        <ellipse cx='200' cy='100' rx='35' ry='45' fill='#ff6b1a' stroke='#ff8c42' stroke-width='3'>
+          <animateTransform attributeName='transform' type='scale' values='1;1.1;1' dur='2.5s' repeatCount='indefinite'/>
+          <animateTransform attributeName='transform' type='translate' values='0,0; 0,-8; 0,0' dur='2.5s' repeatCount='indefinite'/>
+        </ellipse>
+        <!-- Balloon basket -->
+        <rect x='195' y='143' width='10' height='8' fill='#8B4513' rx='2'>
+          <animateTransform attributeName='transform' type='translate' values='0,0; 0,-8; 0,0' dur='2.5s' repeatCount='indefinite'/>
+        </rect>
+        <!-- Balloon strings -->
+        <path d='M 200 150 Q 210 160 200 175' stroke='#8B4513' stroke-width='3' fill='none' stroke-linecap='round'>
+          <animateTransform attributeName='transform' type='translate' values='0,0; 0,-8; 0,0' dur='2.5s' repeatCount='indefinite'/>
+        </path>
+        <!-- Balloon highlight -->
+        <ellipse cx='190' cy='85' rx='8' ry='12' fill='#ffb366' opacity='0.6'>
+          <animateTransform attributeName='transform' type='translate' values='0,0; 0,-8; 0,0' dur='2.5s' repeatCount='indefinite'/>
+        </ellipse>
+      </g>
+
+      <!-- Number 4 - Right -->
+      <g id='four-right'>
+        <rect x='320' y='40' width='20' height='120' fill='#ff8c42' rx='10'>
+          <animateTransform attributeName='transform' type='translate' values='0,0; 0,-5; 0,0' dur='2s' repeatCount='indefinite' begin='0.5s'/>
+        </rect>
+        <rect x='280' y='40' width='20' height='80' fill='#ff8c42' rx='10'>
+          <animateTransform attributeName='transform' type='translate' values='0,0; 0,-5; 0,0' dur='2s' repeatCount='indefinite' begin='0.5s'/>
+        </rect>
+        <rect x='280' y='100' width='80' height='20' fill='#ff8c42' rx='10'>
+          <animateTransform attributeName='transform' type='translate' values='0,0; 0,-5; 0,0' dur='2s' repeatCount='indefinite' begin='0.5s'/>
+        </rect>
+      </g>
+      
+      <!-- Floating particles -->
+      <g id='particles'>
+        <circle cx='20' cy='50' r='3' fill='#ff8c42' opacity='0.7'>
+          <animateTransform attributeName='transform' type='translate' values='0,0; 0,-20; 0,0' dur='4s' repeatCount='indefinite'/>
+          <animate attributeName='opacity' values='0.7;0.2;0.7' dur='4s' repeatCount='indefinite'/>
+        </circle>
+        <circle cx='350' cy='80' r='2' fill='#ff6b1a' opacity='0.6'>
+          <animateTransform attributeName='transform' type='translate' values='0,0; 0,-15; 0,0' dur='3s' repeatCount='indefinite' begin='1s'/>
+          <animate attributeName='opacity' values='0.6;0.1;0.6' dur='3s' repeatCount='indefinite' begin='1s'/>
+        </circle>
+        <circle cx='110' cy='150' r='2.5' fill='#ffb366' opacity='0.5'>
+          <animateTransform attributeName='transform' type='translate' values='0,0; 0,-25; 0,0' dur='5s' repeatCount='indefinite' begin='2s'/>
+          <animate attributeName='opacity' values='0.5;0.1;0.5' dur='5s' repeatCount='indefinite' begin='2s'/>
+        </circle>
+        <circle cx='320' cy='160' r='2' fill='#ff8c42' opacity='0.6'>
+          <animateTransform attributeName='transform' type='translate' values='0,0; 0,-18; 0,0' dur='3.5s' repeatCount='indefinite' begin='1.5s'/>
+          <animate attributeName='opacity' values='0.6;0.1;0.6' dur='3.5s' repeatCount='indefinite' begin='1.5s'/>
+        </circle>
+      </g>
+    </svg>
     <!--# else -->
     <svg viewBox='0 0 100 68'>
       <g id='large'>
@@ -87,7 +179,7 @@
   <!--# if expr="$status = 404" -->
   <h1>OOOPSS...</h1>
   <h2>Looks like the page you are looking for is not here anymore.</h2>
-  <!--# elif expr="$status = 502" -->
+  <!--# elif expr="$status = 500" -->
   <h1>Looks like we're having trouble.</h1>
   <h2>You will be redirected in a few seconds...</h2>
   <!--# else -->
