@@ -10,7 +10,7 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&amp;display=swap' rel='stylesheet'>
   <script src='https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js'></script>
 
-  <!--# if expr="$status = 503" -->
+  <!--# if expr="$status = 500" -->
   <meta http-equiv='refresh' content='30' />
   <!--# endif -->
 
@@ -179,9 +179,10 @@
   <!--# if expr="$status = 404" -->
   <h1>OOOPSS...</h1>
   <h2>Looks like the page you are looking for is not here anymore.</h2>
-  <!--# elif expr="$status = 500" -->
+  <!--# elif expr="$status = 502" -->
   <h1>Looks like we're having trouble.</h1>
-  <h2>Internal Server Error...</h2>
+  <h2>Under Maintenance <!--# echo var="status_emoji" default="" --></h2>
+  <p><!--# echo var="status_text" default="" --></p>
   <!--# else -->
   <h1>Under Maintenance <!--# echo var="status_emoji" default="" --></h1>
   <h2>We are sorry for the inconvenience. In the meantime, please contact the owner for any questions.</h2>
